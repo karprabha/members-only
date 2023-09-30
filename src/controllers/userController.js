@@ -3,6 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 
 import User from "../models/user.js";
 import passport from "../config/passport.js";
+import authenticate from "../middleware/authenticate.middleware.js";
 import * as user_validation from "../middleware/validation/userValidation.middleware.js";
 
 export const user_sign_up_get = expressAsyncHandler(async (req, res, next) => {
@@ -27,7 +28,7 @@ export const user_sign_up_post = [
 
 export const user_log_in_get = expressAsyncHandler(async (req, res, next) => {
     const errorMessage = req.flash("error")[0];
-    res.render("forms/log-in-form", { title: "My App", errorMessage });
+    res.render("forms/log-in-form", { title: "Log In", errorMessage });
 });
 
 export const user_log_in_post = [
@@ -47,3 +48,50 @@ export const user_log_out_get = expressAsyncHandler(async (req, res, next) => {
         res.redirect("/");
     });
 });
+
+export const user_new_message_get = [
+    authenticate,
+    expressAsyncHandler(async (req, res, next) => {
+        res.render("forms/new-message-form", { title: "New Message" });
+    }),
+];
+
+export const user_new_message_post = [
+    expressAsyncHandler(async (req, res, next) => {
+        res.render("forms/new-message-form", { title: "New Message" });
+    }),
+];
+
+export const user_become_member_get = [
+    authenticate,
+    expressAsyncHandler(async (req, res, next) => {
+        res.render("forms/become-member-form", { title: "Become Member" });
+    }),
+];
+
+export const user_become_member_post = [
+    user_validation.user_become_member_validation,
+    expressAsyncHandler(async (req, res, next) => {
+        await User.findByIdAndUpdate(req.user._id, {
+            membership_status: "member",
+        });
+        res.redirect("/");
+    }),
+];
+
+export const user_become_admin_get = [
+    authenticate,
+    expressAsyncHandler(async (req, res, next) => {
+        res.render("forms/become-admin-form", { title: "Become Admin" });
+    }),
+];
+
+export const user_become_admin_post = [
+    user_validation.user_become_admin_validation,
+    expressAsyncHandler(async (req, res, next) => {
+        await User.findByIdAndUpdate(req.user._id, {
+            membership_status: "admin",
+        });
+        res.redirect("/");
+    }),
+];

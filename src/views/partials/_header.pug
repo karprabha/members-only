@@ -1,8 +1,20 @@
 header
-    a(href="#") My Website
+    a(href="/") My Website
     nav
         ul
-            li
-                a(href="/") Home
-            li
-                a(href="/sign-up") Sign Up
+            if currentUser
+                li
+                    a(href="/new-message") New Message
+                if currentUser.membership_status === "user"
+                    li
+                        a(href="/become-member") Become a Member
+                if currentUser.membership_status !== "admin"
+                    li
+                        a(href="/become-admin") Admin Mode
+                li
+                    a(href="/log-out") Log Out
+            else
+                li
+                    a(href="/log-in") Log In
+                li
+                    a(href="/sign-up") Sign Up

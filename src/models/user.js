@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     password: { type: String, required: true, maxLength: 128 },
     membership_status: {
         type: String,
-        enum: ["user", "member"],
+        enum: ["user", "member", "admin"],
         default: "user",
     },
 });

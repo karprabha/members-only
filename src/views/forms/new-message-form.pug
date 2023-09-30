@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1= title
+    if errors
+        ul
+            for error in errors
+                li(class="error")= error.msg
+
+    form(action="" method="POST")
+        label(for="title") Title
+        input(name="title" placeholder="Title" type="text")
+        label(for="message") Message
+        textarea(name="message" cols="30" rows="10" placeholder="Your Message Here...")
+
+        button(type="submit") Submit

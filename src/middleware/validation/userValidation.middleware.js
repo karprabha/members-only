@@ -1,7 +1,10 @@
+import { config } from "dotenv";
 import expressAsyncHandler from "express-async-handler";
 import { body, validationResult } from "express-validator";
 
 import User from "../../models/user.js";
+
+config();
 
 export const user_sign_up_validation = [
     body("firstName")
@@ -119,8 +122,62 @@ export const user_log_in_validation = [
 
         if (!errors.isEmpty()) {
             res.render("forms/log-in-form", {
-                title: "My App",
+                title: "Log In",
                 user: user,
+                errors: errors.array(),
+            });
+        } else {
+            next();
+        }
+    }),
+];
+
+export const user_become_member_validation = [
+    body("passcode")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Passcode must not be empty")
+        .custom((value) => {
+            if (value !== process.env.MEMBER_PASSCODE) {
+                throw new Error("Wrong passcode");
+            }
+            return true;
+        })
+        .escape(),
+
+    expressAsyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.render("forms/become-member-form", {
+                title: "Become Member",
+                errors: errors.array(),
+            });
+        } else {
+            next();
+        }
+    }),
+];
+
+export const user_become_admin_validation = [
+    body("passcode")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Passcode must not be empty")
+        .custom((value) => {
+            if (value !== process.env.ADMIN_PASSCODE) {
+                throw new Error("Wrong passcode");
+            }
+            return true;
+        })
+        .escape(),
+
+    expressAsyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.render("forms/become-admin-form", {
+                title: "Become Admin",
                 errors: errors.array(),
             });
         } else {
