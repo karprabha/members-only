@@ -28,6 +28,14 @@ export const user_sign_up_validation = [
         .withMessage("Username cannot exceed 50 characters")
         .isLowercase()
         .withMessage("Username must be in lowercase")
+        .custom(async (value) => {
+            const user = await User.findOne({ username: value });
+            if (user) {
+                throw new Error(
+                    `Sorry, the username '${value}' is already taken. Please choose a different username.`
+                );
+            }
+        })
         .escape(),
 
     body("password")
@@ -71,20 +79,11 @@ export const user_sign_up_validation = [
             username: req.body.username,
         };
 
-        const existingUser = await User.findOne({
-            username: req.body.username,
-        });
-
-        if (!errors.isEmpty() || existingUser) {
-            const existingUserError = existingUser
-                ? `Sorry, the username '${req.body.username}' is already taken. Please choose a different username.`
-                : "";
-
+        if (!errors.isEmpty()) {
             res.render("forms/sign-up-form", {
                 title: "Sign Up",
                 user: user,
                 errors: errors.array(),
-                existingUserError: existingUserError,
             });
         } else {
             next();

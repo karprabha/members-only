@@ -7,10 +7,6 @@ block content
             for error in errors
                 li(class="error")= error.msg
 
-    if existingUserError
-        ul
-            li(class="error")= existingUserError
-
     form(action="" method="POST")
         label(for="firstName") First Name
         input(name="firstName" placeholder="John" value=(undefined===user ? '' : user.firstName) type="text")
