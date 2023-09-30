@@ -49,19 +49,6 @@ export const user_log_out_get = expressAsyncHandler(async (req, res, next) => {
     });
 });
 
-export const user_new_message_get = [
-    authenticate,
-    expressAsyncHandler(async (req, res, next) => {
-        res.render("forms/new-message-form", { title: "New Message" });
-    }),
-];
-
-export const user_new_message_post = [
-    expressAsyncHandler(async (req, res, next) => {
-        res.render("forms/new-message-form", { title: "New Message" });
-    }),
-];
-
 export const user_become_member_get = [
     authenticate,
     expressAsyncHandler(async (req, res, next) => {
