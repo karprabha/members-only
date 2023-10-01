@@ -2,17 +2,33 @@ extends layout
 
 block content
     .container
-        h1 Welcome
+        .intro
+            h1 Special club for
+                span.primary-color  members
+                |  only
+            p
+                span.tertiary-color Everybody
+                |  can see titles and contents
+            p Registered users can send
+                span.secondary-color  messages
+            p Only
+                span.primary-color  members
+                |  can see the author and date
+
         .card-container
             for message in messages
                 .card
                     .title-contianer
                         h3= message.title
                         if currentUser && currentUser.membership_status !== "user"
-                            span= message.added_formatted
+                            em
+                                span= message.added_formatted
                     if currentUser && currentUser.membership_status !== "user"
                         .author-container
-                            span by #{message.user.name}
+                            span
+                                em by
+                                    - const randomNum = Math.floor(Math.random() * 3) + 1;
+                                    span.author(class=`${randomNum === 1 ? 'primary-color' : randomNum === 2 ? 'secondary-color' : 'tertiary-color'}`)  #{message.user.name}
                     .message-container
                         p= message.message
                     if currentUser && currentUser.membership_status === "admin"

@@ -2,7 +2,15 @@ extends ../layout
 
 block content
     .form-container
-        h1= title
+        h1 New
+            span.secondary-color  Message
+        .intro-text
+            span Hi,
+                span.secondary-color  #{currentUser.first_name}
+
+            span What's on
+                span.secondary-color  your
+                |  mind?
 
         form(action="" method="POST")
             if errors
@@ -14,4 +22,4 @@ block content
             label(for="message") Message
             textarea(name="message" cols="30" rows="10" placeholder="Your Message Here...")
 
-            button(type="submit") Submit
+            button(type="submit" class="secondary-bg-color") Submit

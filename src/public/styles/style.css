@@ -3,7 +3,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #005c57;
+  background-color: #111827;
   position: fixed;
   top: 0;
   left: 0;
@@ -40,6 +40,7 @@ main {
 .form-container {
   flex: 1;
   align-self: center;
+  color: #a6adba;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,15 +49,28 @@ main {
 }
 .form-container h1 {
   text-align: center;
+  color: white;
+}
+.form-container .intro-text {
+  font-size: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.form-container .intro-text a {
+  text-decoration: none;
 }
 .form-container form {
   max-width: 400px;
   min-width: 300px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #1e2227;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #15191e;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -68,18 +82,12 @@ main {
   font-weight: bold;
   display: block;
 }
-.form-container form input[type=text],
-.form-container form input[type=password] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.form-container form input[type=password]:last-of-type {
-  margin-bottom: 15px;
+.form-container form input {
+  color: #a6adba;
+  font-size: 16px;
 }
 .form-container form textarea {
+  font-size: 16px;
   resize: none;
   width: 100%;
   font-family: inherit;
@@ -87,9 +95,23 @@ main {
   box-sizing: border-box;
   border-radius: 2px;
   margin-bottom: 15px;
+  border-color: #1e2227;
+  background-color: #212529;
+  color: #a6adba;
+}
+.form-container form input[type=text],
+.form-container form input[type=password] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #1e2227;
+  background-color: #212529;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-container form input[type=password]:last-of-type {
+  margin-bottom: 15px;
 }
 .form-container form button {
-  background-color: #007bff;
   width: 100%;
   color: white;
   border: none;
@@ -117,34 +139,41 @@ main {
 
 .container {
   flex: 1;
+  color: #a6adba;
 }
-.container h1 {
+.container .intro {
   text-align: center;
+  margin-bottom: 30px;
+}
+.container .intro h1 {
+  color: white;
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+.container .intro p {
+  font-size: 1.5rem;
 }
 .container .card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   padding: 5px 0;
-  overflow: auto;
-  max-height: 800px;
 }
 .container .card-container .card {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 450px;
   width: 100%;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
-  padding: 20px;
-  background-color: #fff;
+  padding: 30px;
+  background-color: #15191e;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .container .card-container .card .title-contianer {
   display: flex;
@@ -155,10 +184,12 @@ main {
   font-size: 22px;
 }
 .container .card-container .card .author-container {
-  color: #515151;
+  font-size: 14px;
+}
+.container .card-container .card .author-container .author {
+  font-weight: 600;
 }
 .container .card-container .card .message-container {
-  color: #252525;
   font-size: 18px;
 }
 .container .card-container .card .btn-container {
@@ -177,7 +208,7 @@ main {
 }
 
 footer {
-  background-color: #005c57;
+  background-color: #111827;
   color: white;
   text-align: center;
   padding: 5px 20px;
@@ -190,10 +221,42 @@ footer {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #1f2937;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.primary-color {
+  color: #641ae6;
+}
+
+.secondary-color {
+  color: #d926a9;
+}
+
+.tertiary-color {
+  color: #1fb2a6;
+}
+
+.gold-color {
+  color: #a9792b;
+}
+
+.primary-bg-color {
+  background-color: #641ae6;
+}
+
+.secondary-bg-color {
+  background-color: #d926a9;
+}
+
+.tertiary-bg-color {
+  background-color: #1fb2a6;
+}
+
+.gold-bg-color {
+  background-color: #a9792b;
 }
 
 /*# sourceMappingURL=style.css.map */

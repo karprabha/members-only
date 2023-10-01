@@ -19,9 +19,41 @@ body {
         "Helvetica Neue",
         sans-serif;
 
-    background-color: #f5f5f5;
+    background-color: #1f2937;
 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.primary-color {
+    color: #641ae6;
+}
+
+.secondary-color {
+    color: #d926a9;
+}
+
+.tertiary-color {
+    color: #1fb2a6;
+}
+
+.gold-color {
+    color: #a9792b;
+}
+
+.primary-bg-color {
+    background-color: #641ae6;
+}
+
+.secondary-bg-color {
+    background-color: #d926a9;
+}
+
+.tertiary-bg-color {
+    background-color: #1fb2a6;
+}
+
+.gold-bg-color {
+    background-color: #a9792b;
 }

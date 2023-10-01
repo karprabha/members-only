@@ -2,7 +2,16 @@ extends ../layout
 
 block content
     .form-container
-        h1= title
+        h1 Become a
+            span.primary-color  Member
+
+        .intro-text
+            span Enter the correct passcode to gain
+                span.primary-color  member
+                |  status
+
+            span Hover around and look for a
+                a(href="" class="primary-color")  hint
 
         form(action="" method="POST")
             if errors
@@ -11,4 +20,4 @@ block content
                         li(class="error")= error.msg
             label(for="passcode") Passcode
             input(name="passcode" type="password")
-            button(type="submit") Submit
+            button(type="submit" class="primary-bg-color") Submit
