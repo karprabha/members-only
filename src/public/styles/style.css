@@ -166,6 +166,15 @@ main {
   justify-content: flex-end;
   align-items: center;
 }
+.container .card-container .card .btn-container button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
 footer {
   background-color: #005c57;
