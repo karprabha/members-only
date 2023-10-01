@@ -1,21 +1,22 @@
 extends ../layout
 
 block content
-    h1= title
-    if errors
-        ul
-            for error in errors
-                li(class="error")= error.msg
-    if errorMessage
-        ul
-            li(class="error")= errorMessage
+    .form-container
+        h1= title
 
-    form(action="/log-in" method="POST")
-        label(for="username") Username
-        input(name="username" placeholder="username" value=(undefined===user ? '' : user.username) type="text")
-        label(for="password") Password
-        input(name="password" type="password")
-        button(type="submit") Log In
+        form(action="/log-in" method="POST")
+            if errors
+                ul
+                    for error in errors
+                        li(class="error")= error.msg
+            if errorMessage
+                ul
+                    li(class="error")= errorMessage
+            label(for="username") Username
+            input(name="username" placeholder="Username" value=(undefined===user ? '' : user.username) type="text")
+            label(for="password") Password
+            input(name="password" placeholder="Password" type="password")
+            button(type="submit") Log In
 
-    a(href="/sign-up")
-        button(type="button") Create new Account
+            a(href="/sign-up")
+                button(type="button") Sign Up

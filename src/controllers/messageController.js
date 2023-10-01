@@ -8,7 +8,7 @@ export const message_list_get = expressAsyncHandler(async (req, res, next) => {
     const messages = await Message.find({})
         .populate("user", "first_name family_name")
         .exec();
-    res.render("index", { title: "My App", messages: messages });
+    res.render("index", { title: "Incognito Lounge", messages: messages });
 });
 
 export const new_message_get = [

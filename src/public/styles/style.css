@@ -1,5 +1,190 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #005c57;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-sizing: border-box;
+  color: #fff;
+}
+header h1 {
+  font-size: 1.5rem;
+}
+header a {
+  text-decoration: none;
+  color: white;
+}
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+header ul li a:hover {
+  color: #f0f0f0;
+}
+
+main {
+  flex: 1;
+  padding: 20px 20px;
+  padding-top: 0;
+  margin-top: 60px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.form-container {
+  flex: 1;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.form-container h1 {
+  text-align: center;
+}
+.form-container form {
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.form-container form label {
+  font-weight: bold;
+  display: block;
+}
+.form-container form input[type=text],
+.form-container form input[type=password] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-container form input[type=password]:last-of-type {
+  margin-bottom: 15px;
+}
+.form-container form textarea {
+  resize: none;
+  width: 100%;
+  font-family: inherit;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+.form-container form button {
+  background-color: #007bff;
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.form-container form a {
+  width: 100%;
+}
+.form-container form a button {
+  width: 100%;
+}
+.form-container form .error {
+  list-style: none;
+  color: #f44336;
+  font-size: 14px;
+  margin-top: 5px;
+  background-color: #ffe5e5;
+  padding: 5px 10px;
+  border: 1px solid #ffcccc;
+  border-radius: 5px;
+}
+
+.container {
+  flex: 1;
+}
+.container h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+}
+.container .card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  overflow: auto;
+  max-height: 800px;
+}
+.container .card-container .card {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.container .card-container .card .title-contianer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .card-container .card .title-contianer h3 {
+  font-size: 22px;
+}
+.container .card-container .card .author-container {
+  color: #515151;
+}
+.container .card-container .card .message-container {
+  color: #252525;
+  font-size: 18px;
+}
+.container .card-container .card .btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+footer {
+  background-color: #005c57;
+  color: white;
+  text-align: center;
+  padding: 5px 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: aquamarine;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=style.css.map */

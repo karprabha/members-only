@@ -1,21 +1,22 @@
 extends ../layout
 
 block content
-    h1= title
-    if errors
-        ul
-            for error in errors
-                li(class="error")= error.msg
+    .form-container
+        h1= title
 
-    form(action="" method="POST")
-        label(for="firstName") First Name
-        input(name="firstName" placeholder="John" value=(undefined===user ? '' : user.firstName) type="text")
-        label(for="familyName") Family Name
-        input(name="familyName" placeholder="Doe" value=(undefined===user ? '' : user.familyName) type="text")
-        label(for="username") Username
-        input(name="username" placeholder="username" value=(undefined===user ? '' : user.username) type="text")
-        label(for="password") Password
-        input(name="password" type="password")
-        label(for="confirm-password") Confirm Password
-        input(name="confirm-password" type="password")
-        button(type="submit") Sign Up
+        form(action="" method="POST")
+            if errors
+                ul
+                    for error in errors
+                        li(class="error")= error.msg
+            label(for="firstName") First Name
+            input(name="firstName" placeholder="John" value=(undefined===user ? '' : user.firstName) type="text")
+            label(for="familyName") Family Name
+            input(name="familyName" placeholder="Doe" value=(undefined===user ? '' : user.familyName) type="text")
+            label(for="username") Username
+            input(name="username" placeholder="Username" value=(undefined===user ? '' : user.username) type="text")
+            label(for="password") Password
+            input(name="password" placeholder="Password" type="password")
+            label(for="confirm-password") Confirm Password
+            input(name="confirm-password" placeholder="Confirm Password" type="password")
+            button(type="submit") Sign Up

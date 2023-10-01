@@ -1,13 +1,14 @@
 extends ../layout
 
 block content
-    h1= title
-    if errors
-        ul
-            for error in errors
-                li(class="error")= error.msg
+    .form-container
+        h1= title
 
-    form(action="" method="POST")
-        label(for="passcode") Passcode
-        input(name="passcode" type="password")
-        button(type="submit") Submit
+        form(action="" method="POST")
+            if errors
+                ul
+                    for error in errors
+                        li(class="error")= error.msg
+            label(for="passcode") Passcode
+            input(name="passcode" type="password")
+            button(type="submit") Submit

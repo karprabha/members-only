@@ -1,17 +1,21 @@
 extends layout
 
 block content
-    h1 Welcome
-    ul
-        for message in messages
-            li
-                h4= message.title
-                p= message.message
-                if currentUser
-                    if currentUser.membership_status !== "user"
-                        h6= message.user.name
-                        h6= message.added_formatted
-                    if currentUser.membership_status === "admin"
+    .container
+        h1 Welcome
+        .card-container
+            for message in messages
+                .card
+                    .title-contianer
+                        h3= message.title
+                        if currentUser && currentUser.membership_status !== "user"
+                            span= message.added_formatted
+                    if currentUser && currentUser.membership_status !== "user"
+                        .author-container
+                            span by #{message.user.name}
+                    .message-container
+                        p= message.message
+                    if currentUser && currentUser.membership_status === "admin"
                         form.delete-form(method='POST' action='/delete-message')
                             input(type='hidden' name='id' required='true', value=message._id)
                             .btn-container
