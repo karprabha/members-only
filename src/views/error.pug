@@ -6,10 +6,11 @@ html(lang="en")
         link(rel='stylesheet' href='/styles/style.css')
         title= title
     body
-        h1= message
-        h2= error.status
+        .error-page
+            h1= message
+            h2= error.status
 
-        a(href="/")
-            button(type="button") Go Home
+            a(href="/")
+                button(type="button" class="primary-bg-color") Go Home
 
-        pre #{error.stack}
+            pre #{error.stack}

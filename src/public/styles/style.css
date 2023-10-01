@@ -214,6 +214,29 @@ footer {
   padding: 5px 20px;
 }
 
+.error-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: #a6adba;
+}
+.error-page h1,
+.error-page h2 {
+  color: white;
+}
+.error-page button {
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
